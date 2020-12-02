@@ -54,7 +54,12 @@ public class Father_Controller : MonoBehaviour
         {
             father_ready = true;
         }
-    }
+
+        if (col.tag == "apple")
+        {
+            gameObject.GetComponent<ChatBox>().Talk_apple();
+        }
+    }   
 
     public bool CameraOutCheck()
     {

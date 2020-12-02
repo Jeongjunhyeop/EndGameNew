@@ -122,6 +122,5 @@ public class Player_Controller : MonoBehaviour
         if (col.tag == "father_head")
             rigid.velocity = Vector2.up * jumpPower;
 
-
     }
 }
