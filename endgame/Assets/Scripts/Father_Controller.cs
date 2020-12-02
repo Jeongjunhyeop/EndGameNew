@@ -53,11 +53,36 @@ public class Father_Controller : MonoBehaviour
         if (col.tag == "son_wait_pos")
         {
             father_ready = true;
+            gameObject.GetComponent<ChatBox>().Talk_danger();
+            Destroy(col);
         }
 
         if (col.tag == "apple")
         {
+            father_ready = true;
             gameObject.GetComponent<ChatBox>().Talk_apple();
+            Destroy(col);
+        }
+
+        if (col.tag == "wait0")
+        {
+            father_ready = true;
+            gameObject.GetComponent<ChatBox>().Talk();
+            Destroy(col);
+        }
+
+        if (col.tag == "wait2")
+        {
+            father_ready = true;
+            gameObject.GetComponent<ChatBox>().Talk_platform();
+            Destroy(col);
+        }
+
+        if (col.tag == "wait3")
+        {
+            father_ready = true;
+            gameObject.GetComponent<ChatBox>().Talk_bird();
+            Destroy(col);
         }
     }   
 

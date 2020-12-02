@@ -8,6 +8,7 @@ public class item : MonoBehaviour
     {
         if (col.tag == "player")
             Destroy(gameObject);
+
         if (col.tag == "father")
         {
             gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;

@@ -16,6 +16,9 @@ TagManager:
   - erease
   - erase
   - apple
+  - wait2
+  - wait0
+  - wait3
   layers:
   - Default
   - TransparentFX
