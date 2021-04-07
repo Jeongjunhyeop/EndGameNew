@@ -9,9 +9,13 @@ public class Father_Controller : MonoBehaviour
 
     Rigidbody2D rigid;
     Animator anim;
-    public GameObject son;
 
-   public bool father_ready;
+    public GameObject son;
+    public GameObject button;
+
+
+    public float isRight = 1;  // 바라보는 방향 1 = 오른쪽 , -1 = 왼쪽
+    public bool father_ready;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +30,10 @@ public class Father_Controller : MonoBehaviour
     void Update()
     {
         if (father_ready == true && (son.transform.position.x > gameObject.transform.position.x))
+        {
+            FlipPlayer();
             father_ready = false;
+        }
 
         if (father_ready)
         {
@@ -50,13 +57,6 @@ public class Father_Controller : MonoBehaviour
             rigid.velocity = Vector2.up * jumpPower;
         }
 
-        if (col.tag == "son_wait_pos")
-        {
-            father_ready = true;
-            gameObject.GetComponent<ChatBox>().Talk_danger();
-            Destroy(col);
-        }
-
         if (col.tag == "apple")
         {
             father_ready = true;
@@ -64,15 +64,26 @@ public class Father_Controller : MonoBehaviour
             Destroy(col);
         }
 
+        if (col.tag == "son_wait_pos")
+        {
+            FlipPlayer();
+            father_ready = true;
+            gameObject.GetComponent<ChatBox>().Talk_danger();
+            Destroy(col);
+        }
+
         if (col.tag == "wait0")
         {
+            FlipPlayer();
             father_ready = true;
             gameObject.GetComponent<ChatBox>().Talk();
             Destroy(col);
+            button.SetActive(true);
         }
 
         if (col.tag == "wait2")
         {
+            FlipPlayer();
             father_ready = true;
             gameObject.GetComponent<ChatBox>().Talk_platform();
             Destroy(col);
@@ -80,6 +91,7 @@ public class Father_Controller : MonoBehaviour
 
         if (col.tag == "wait3")
         {
+            FlipPlayer();
             father_ready = true;
             gameObject.GetComponent<ChatBox>().Talk_bird();
             Destroy(col);
@@ -113,6 +125,13 @@ public class Father_Controller : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void FlipPlayer()
+    {
+        // 방향을 전환.
+        transform.eulerAngles = new Vector3(0, Mathf.Abs(transform.eulerAngles.y - 180), 0);
+        isRight = isRight * -1;
     }
 
 }
