@@ -55,7 +55,7 @@ public class Player_Controller : MonoBehaviour
 
         anim.SetBool("isGround", isGround);
 
-        // 스페이스바가 눌리면 점프 애니메이션을 동작
+        // 스페이스바가 눌리면 점프 애니메이션
         if (Input.GetAxis("Jump") != 0)
         {
             anim.SetTrigger("jump");
@@ -64,8 +64,9 @@ public class Player_Controller : MonoBehaviour
         // 방향키가 눌리는 방향과 캐릭터가 바라보는 방향이 다르다면 캐릭터의 방향을 전환.
         if ((input_x > 0 && isRight < 0) || (input_x < 0 && isRight > 0))
         {
-            FlipPlayer();
             anim.SetBool("run", true);
+            FlipPlayer();
+            
         }
         else if (input_x == 0)
         {

@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 9143166759417297959}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.41, y: 1.52, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 9143166760963086000}
   - {fileID: 9143166759215703814}
@@ -108,7 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -6367560908665664636, guid: 3750f45c844123341b9a777a96cb1eca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f6086458282415149a7eaca25dd4593b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,8 +172,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0062630177, y: -0.03757897}
-  m_Size: {x: 0.24484205, y: 0.24484205}
+  m_Offset: {x: 0.006262461, y: -0.2673665}
+  m_Size: {x: 0.46463647, y: 0.7044173}
   m_Direction: 0
 --- !u!114 &9143166759417297961
 MonoBehaviour:
@@ -190,6 +190,8 @@ MonoBehaviour:
   runSpeed: 1
   jumpPower: 5
   son: {fileID: 0}
+  button: {fileID: 0}
+  isRight: 1
   father_ready: 0
 --- !u!114 &9143166759417297966
 MonoBehaviour:
@@ -205,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentence:
   - "\uC0C8\uD574\uAC00 \uB418\uC5C8\uC73C\uB2C8 \uB4F1\uC0B0\uC744 \uD574\uC57C\uC9C0"
-  - "\uC5BC\uB978 \uB530\uB77C\uC624\uAC70\uB77C"
+  - "\uC5BC\uB978 \uB530\uB77C\uC640\uB77C"
   - "\uD558\uD558\uD558\uD558"
   sentence_apple:
   - "\uC0AC\uACFC\uB294 \uBAB8\uC5D0  \uC88B\uB2E8\uB2E4!"
@@ -246,7 +248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9143166760963086003}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.013, y: 0, z: 0}
+  m_LocalPosition: {x: -0.013, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9143166759417297962}
@@ -265,7 +267,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.024630785, y: 0.094661236}
+  m_Offset: {x: 0.004650295, y: 0.094661236}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -276,5 +278,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.27704477, y: 0.102561235}
+  m_Size: {x: 0.41691458, y: 0.102561235}
   m_EdgeRadius: 0

@@ -54,6 +54,7 @@ public class Father_Controller : MonoBehaviour
     {
         if (col.tag == "wall")
         {
+            anim.SetTrigger("f_jump");
             rigid.velocity = Vector2.up * jumpPower;
         }
 
