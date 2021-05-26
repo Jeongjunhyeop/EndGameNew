@@ -75,8 +75,9 @@ public class Father_Controller : MonoBehaviour
 
         if (col.tag == "wait0")
         {
-            FlipPlayer();
+            
             father_ready = true;
+            FlipPlayer();
             gameObject.GetComponent<ChatBox>().Talk();
             Destroy(col);
             button.SetActive(true);

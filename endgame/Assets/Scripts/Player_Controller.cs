@@ -26,8 +26,13 @@ public class Player_Controller : MonoBehaviour
     public int Hp;
     public int Max_Hp;
 
+    public int add_jump_count;
+    public bool jump_chk;
+
     void Start()
     {
+        add_jump_count = 2;
+
         Hp = 100;
         Max_Hp = 100;
 
@@ -49,7 +54,10 @@ public class Player_Controller : MonoBehaviour
 
         // 앞 또는 뒤쪽의 바닥이 감지되면 isGround 변수를 참으로!
         if (ground_front || ground_back)
+        {
             isGround = true;
+            add_jump_count = 2;
+        }
         else
             isGround = false;
 
@@ -84,14 +92,24 @@ public class Player_Controller : MonoBehaviour
         // 캐릭터 이동
         rigid.velocity = (new Vector2((input_x) * runSpeed, rigid.velocity.y));
 
-        if (isGround == true)
+        if (isGround)
         {
             // 캐릭터 점프
             if (Input.GetAxis("Jump") != 0)
             {
                 rigid.velocity = Vector2.up * jumpPower;
+                add_jump_count--;
             }
         }
+        else if(isGround == false)
+        {
+            if (jump_chk && add_jump_count> 0 && Input.GetKeyDown(KeyCode.Space))
+            {
+                rigid.velocity = Vector2.up * jumpPower;
+                add_jump_count--;
+            }
+        }
+  
     }
 
     void FlipPlayer()
@@ -122,6 +140,9 @@ public class Player_Controller : MonoBehaviour
 
         if (col.tag == "father_head")
             rigid.velocity = Vector2.up * jumpPower;
+
+        if (col.tag == "Goal")
+            SceneManager.LoadScene("Stage_select");
 
     }
 }

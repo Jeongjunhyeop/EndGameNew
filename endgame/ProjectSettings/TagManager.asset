@@ -13,12 +13,11 @@ TagManager:
   - wall
   - son_wait_pos
   - father_head
-  - erease
-  - erase
   - apple
   - wait2
   - wait0
   - wait3
+  - Goal
   layers:
   - Default
   - TransparentFX
