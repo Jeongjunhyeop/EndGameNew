@@ -38,6 +38,8 @@ public class Player_Controller : MonoBehaviour
 
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        //GameObject.Find("SoundManager").GetComponent<soundManager>().set_player_npc();
     }
 
     void Update()
@@ -87,7 +89,7 @@ public class Player_Controller : MonoBehaviour
         hpBar.value = (float)Hp / (float)Max_Hp;
 
         if (Hp <= 0)
-            SceneManager.LoadScene("gameover");
+            SceneManager.LoadScene("Stage_select");
 
         // 캐릭터 이동
         rigid.velocity = (new Vector2((input_x) * runSpeed, rigid.velocity.y));
@@ -97,6 +99,7 @@ public class Player_Controller : MonoBehaviour
             // 캐릭터 점프
             if (Input.GetAxis("Jump") != 0)
             {
+                gameObject.GetComponent<AudioSource>().Play();
                 rigid.velocity = Vector2.up * jumpPower;
                 add_jump_count--;
             }
@@ -105,6 +108,7 @@ public class Player_Controller : MonoBehaviour
         {
             if (jump_chk && add_jump_count> 0 && Input.GetKeyDown(KeyCode.Space))
             {
+                gameObject.GetComponent<AudioSource>().Play();
                 rigid.velocity = Vector2.up * jumpPower;
                 add_jump_count--;
             }

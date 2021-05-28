@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/STAGE_3.unity
     guid: 89e69ea17ef63084f8913210642ace1e
   - enabled: 1
-    path: Assets/Scenes/gameover.unity
-    guid: dc72c6a3d0d139043b0099fc9eb48b2f
+    path: Assets/Scenes/STAGE_4.unity
+    guid: fd211ab670d39ec43add5343b0b3370c
   m_configObjects: {}

@@ -11,6 +11,11 @@ public class ChatBox : MonoBehaviour
     public string[] sentence_danger;
     public string[] sentence_bird;
 
+    public string[] sentence_fall;
+    public string[] sentence_fall_sry;
+    public string[] sentence_thx;
+    public string[] sentence_st3;
+
     public Transform chat_xy;
     public GameObject chatboxPrefab;
 
@@ -50,8 +55,28 @@ public class ChatBox : MonoBehaviour
         go.GetComponent<ChatSystem>().Ondialogue(sentence_danger, chat_xy);
     }
 
-    private void OnMouseDown()
+    public void Talk_fall()
     {
-        Talk();
+        GameObject go = Instantiate(chatboxPrefab);
+        go.GetComponent<ChatSystem>().Ondialogue(sentence_fall, chat_xy);
     }
+
+    public void Talk_sry()
+    {
+        GameObject go = Instantiate(chatboxPrefab);
+        go.GetComponent<ChatSystem>().Ondialogue(sentence_fall_sry, chat_xy);
+    }
+
+    public void Thanks()
+    {
+        GameObject go = Instantiate(chatboxPrefab);
+        go.GetComponent<ChatSystem>().Ondialogue(sentence_thx, chat_xy);
+    }
+
+    public void hello()
+    {
+        GameObject go = Instantiate(chatboxPrefab);
+        go.GetComponent<ChatSystem>().Ondialogue(sentence_st3, chat_xy);
+    }
+
 }

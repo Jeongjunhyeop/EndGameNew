@@ -18,6 +18,11 @@ TagManager:
   - wait0
   - wait3
   - Goal
+  - stage2_wait1
+  - fall_wall
+  - stage2_wait0
+  - son_head
+  - stage3_hello
   layers:
   - Default
   - TransparentFX

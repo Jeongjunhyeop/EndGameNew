@@ -13,6 +13,10 @@ public class Father_Controller : MonoBehaviour
     public GameObject son;
     public GameObject button;
 
+    public GameObject st2_say1;
+    public GameObject st2_say2;
+
+
 
     public float isRight = 1;  // 바라보는 방향 1 = 오른쪽 , -1 = 왼쪽
     public bool father_ready;
@@ -55,7 +59,17 @@ public class Father_Controller : MonoBehaviour
         if (col.tag == "wall")
         {
             anim.SetTrigger("f_jump");
+            gameObject.GetComponent<AudioSource>().Play();
             rigid.velocity = Vector2.up * jumpPower;
+        }
+
+        if (col.tag == "fall_wall")
+        {
+            anim.SetTrigger("f_jump");
+            gameObject.GetComponent<AudioSource>().Play();
+            runSpeed = 10;
+            rigid.velocity = Vector2.up * jumpPower * 2.5f;
+            
         }
 
         if (col.tag == "apple")
@@ -98,6 +112,33 @@ public class Father_Controller : MonoBehaviour
             gameObject.GetComponent<ChatBox>().Talk_bird();
             Destroy(col);
         }
+
+        if (col.tag == "stage2_wait1")
+        {
+            Destroy(col);
+            FlipPlayer();
+            father_ready = true;
+            gameObject.GetComponent<ChatBox>().Talk_fall();
+            st2_say1.SetActive(true);
+        }
+
+        if (col.tag == "stage2_wait0")
+        {
+            FlipPlayer();
+            father_ready = true;
+        }
+
+        if (col.tag == "son_head")
+        {
+            rigid.velocity = Vector2.up * jumpPower;
+        }
+
+        if (col.tag == "stage3_hello")
+        {
+            gameObject.GetComponent<ChatBox>().hello();
+        }
+
+
     }   
 
     public bool CameraOutCheck()
@@ -136,4 +177,9 @@ public class Father_Controller : MonoBehaviour
         isRight = isRight * -1;
     }
 
+    public void self_jump()
+    {
+        rigid.velocity = Vector2.up * jumpPower;
+        gameObject.GetComponent<ChatBox>().Thanks();
+    }
 }

@@ -5,6 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    //public static SceneController Instance;
+
+    //private void Awake()
+    //{
+    //    if (Instance != null)
+    //    {
+    //        Destroy(gameObject);
+    //        return;
+    //    }
+
+    //    Instance = this;
+    //    DontDestroyOnLoad(gameObject);
+    //}
+
+    public GameObject option_bt;
+    public GameObject option_pannel;
+
+    private void Start()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     public void load_main()
     {
@@ -36,9 +57,24 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("STAGE_4");
     }
 
+    public void reload_stage()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void end_game()
     {
         Application.Quit();
+    }
+
+    public void active_option()
+    {
+        option_pannel.SetActive(true);
+    }
+
+    public void off_option()
+    {
+        option_pannel.SetActive(false);
     }
 
 }
